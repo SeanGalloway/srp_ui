@@ -1,6 +1,14 @@
 <script>
     import axios from "axios";
     import auth from "../util/auth";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        let token = auth.getToken();
+        if (token) {
+            window.location.href = "/notes";
+        }
+    });
 
     let email = "";
     let password = "";
